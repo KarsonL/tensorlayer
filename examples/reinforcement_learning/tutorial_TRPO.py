@@ -414,9 +414,9 @@ class TRPO:
             if kl <= DELTA and pi_l_new <= pi_l_old:
                 # Accepting new params at step of line search
                 break
-        else:
-            # Line search failed! Keeping old params.
-            set_and_eval(step=0.)
+            else:
+                # Line search failed! Keeping old params.
+                set_and_eval(step=0.)
 
         # Value function updates
         for _ in range(TRAIN_VF_ITERS):
